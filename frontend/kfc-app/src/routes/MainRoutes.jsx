@@ -12,6 +12,7 @@ import PageNotFound from '../pages/PageNotFound'
 import About from '../pages/About'
 import Careers from "../pages/Careers"
 import CheckOut from '../checkout_components/CheckOut'
+import Admin from '../pages/Admin'
 
 
 const MainRoutes = () => {
@@ -29,6 +30,7 @@ const MainRoutes = () => {
             <Route path="/api/Auth/signup" element={<SignUp />}></Route>
             <Route path="/careers" element={<Careers/>}></Route>
             <Route path="/checkout" element={<CheckOut/>}></Route>
+            <Route path="/admin" element={<Admin/>}></Route>
             {/* PAGE NOT FOUND */}
             <Route path="*" element={<PageNotFound />}></Route>
         </Routes>

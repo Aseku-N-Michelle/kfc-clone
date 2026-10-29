@@ -10,7 +10,7 @@ const SingleProduct = () => {
     const {id}= useParams();
     const [single,setsingle]= useState([]);
     useEffect(()=>{
-      axios.get(`https://kfcapi.herokuapp.com/api/product/menu/${id}`)
+      axios.get(`http://localhost:8080/api/product/menu/${id}`)
       .then(({data})=>{
         setsingle(data)
       })

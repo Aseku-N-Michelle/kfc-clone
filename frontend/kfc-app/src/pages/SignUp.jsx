@@ -25,7 +25,7 @@ const SignUp = () => {
 
   async function registerUser(event) {
     event.preventDefault();
-    const response = await fetch("https://kfcapi.herokuapp.com/Auth/signup", {
+    const response = await fetch("http://localhost:8080/Auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

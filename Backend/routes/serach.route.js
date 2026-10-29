@@ -6,7 +6,7 @@ searchRouter.get("/item", async (req, res) => {
   let query = req.query;
 
   let items = await Menu.find({
-    title: { $regex: req.query.search, $options: /i/ },
+    title: { $regex: req.query.search, $options: "i" },
   });
   res.json(items);
 });

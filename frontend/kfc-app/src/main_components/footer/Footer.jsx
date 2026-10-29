@@ -92,6 +92,17 @@ ul>p {
 .lastLinefootsvg{
     visibility:hidden;
 }
+.teamcredits{
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid gray;
+    text-align: center;
+    color: white;
+}
+.teamcredits p{
+    font-size: 14px;
+    margin: 6px 0;
+}
 @media all and (min-width:0px) and (max-width:1024px) {
     .footermaindiv{
         width:100vw;
@@ -240,6 +251,13 @@ export const Footer = () => {
                     <div style={{ borderLeft: "gray" }} className='lastLinefoot'>
                         <p> Asessibility Statement</p>
                     </div>
+
+                    <div className='teamcredits'>
+                        <p><b>Developed by:</b></p>
+                        <p>Aseku Nanyanga Michelle | Reg No: S25D14/035</p>
+                        <p>Mwajuma Gift | Reg No: M25D14/011</p>
+                        <p>Achia Bethmas | Reg No: S25D14/044</p>
+                    </div>
                 </div>
                 <div style={{ display: "flex" }} className='lastLinefootsvg'>
                     <Link to={"https://www.instagram.com/_mad___boxer_/"}><img height={"30rem"} style={{ padding: "0.3vw 1vw" }} src={instagram} alt="" /></Link>
@@ -250,4 +268,3 @@ export const Footer = () => {
         </FooterStyled>
     )
 }
-
