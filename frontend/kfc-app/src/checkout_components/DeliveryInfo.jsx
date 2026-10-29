@@ -14,13 +14,13 @@ const DeliveryInfo = () => {
               src="https://online.kfc.co.in/static/media/LocationOn.f57c1dfd.svg"
               alt=""
             />
-            <p style={{ marginLeft: "20px" }}>KFC Delhi - CP1</p>
+            <p style={{ marginLeft: "20px" }}>KFC Kampala Road</p>
           </div>
-          <p style={{ marginLeft: "20px", marginTop: "-10px"}}>New Delhi, Delhi 110001, India</p>
+          <p style={{ marginLeft: "20px", marginTop: "-10px"}}>Kampala, Central Region, Uganda</p>
           <p>Address 2</p>
           <input className="input_style"
             type="text"
-            placeholder="Appartment, suite, unit, building, floor"
+            placeholder="Apartment, suite, unit, building, floor"
           />
           <div style={{display: "flex"}}>
             <img src="https://online.kfc.co.in/static/media/WatchLater.3ca73ea2.svg" alt="" />
