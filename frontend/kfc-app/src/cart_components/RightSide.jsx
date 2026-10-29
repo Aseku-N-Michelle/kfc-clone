@@ -17,11 +17,12 @@ const RightSide = () => {
   const location = useLocation();
   let path = location.pathname;
 
-  // Works with prices like "8.99" and "UGX 299"
+  // Works with prices like "8.99" and "UGX 299", and never returns NaN
   useEffect(() => {
     let total = cart.reduce((acc, el) => {
-      let price = Number(String(el.price).replace(/[^0-9.]/g, ""));
-      return acc + price * el.qty * RATE;
+      let price = Number(String(el.price).replace(/[^0-9.]/g, "")) || 0;
+      let qty = Number(el.qty ?? el.quantity ?? el.count ?? 1) || 1;
+      return acc + price * qty * RATE;
     }, 0)
     setstotal(Math.round(total))
   }, [cart])
