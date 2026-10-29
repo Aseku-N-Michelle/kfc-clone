@@ -8,6 +8,8 @@ import "../pages/Cart.css"
 // Set it to 1 if your database prices are already in shillings.
 const RATE = 3700;
 const DONATION = 5000;
+const GST_RATE = 0.18;   // Uganda VAT 18%
+const HANDLING = 2000;   // flat handling fee in UGX, change if your group agrees on another
 
 const RightSide = () => {
   const [input, setInput] = useState(false);
@@ -30,6 +32,10 @@ const RightSide = () => {
   const handleInput = () => {
     setInput(!input);
   };
+
+  const gst = Math.round(stotal * GST_RATE);
+  const handling = stotal > 0 ? HANDLING : 0;
+  const grandTotal = stotal + gst + handling + (input ? DONATION : 0);
 
   const initPayment = (data) => {
     const options = {
@@ -59,7 +65,7 @@ const RightSide = () => {
   const handlePayment = async () => {
     try {
       const orderURL = "https://kfc-clone-ulag.onrender.com/api/payment/orders";
-      const { data } = await axios.post(orderURL, { amount: stotal });
+      const { data } = await axios.post(orderURL, { amount: grandTotal });
       console.log("data:", data);
       initPayment(data.data);
     } catch (err) {
@@ -72,8 +78,6 @@ const RightSide = () => {
     justifyContent: "space-between",
     marginTop: "10px",
   };
-
-  const grandTotal = !input ? stotal : stotal + DONATION;
 
   return (
     <>
@@ -92,14 +96,14 @@ const RightSide = () => {
         <div>UGX {stotal.toLocaleString()}</div>
       </div>
       <div style={row}>
-        <div>GST</div>
-        <div>UGX {stotal.toLocaleString()}</div>
+        <div>GST (18%)</div>
+        <div>UGX {gst.toLocaleString()}</div>
       </div>
       <div style={row}>
         <div style={{ marginRight: "20px" }}>
           Restaurant Handling (Incl. Taxes)
         </div>
-        <div>UGX {stotal.toLocaleString()}</div>
+        <div>UGX {handling.toLocaleString()}</div>
       </div>
 
       {input ? (
@@ -119,7 +123,7 @@ const RightSide = () => {
         </div>
         <div style={{ marginTop: "-17px" }}>
           <p>Donate UGX {DONATION.toLocaleString()} Tick to Add Hope.</p>
-          <p>Our goal is to feed 20 million people by 2022.</p>
+          <p>Your donation helps feed children in need.</p>
         </div>
       </div>
 
