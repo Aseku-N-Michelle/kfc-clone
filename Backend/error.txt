@@ -1,3 +1,0 @@
-Connected to Database
-🌎 started on http://localhost:8080/
-^C
