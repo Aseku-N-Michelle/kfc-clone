@@ -40,7 +40,7 @@ const RightSide = () => {
       order_id: data.id,
       handler: async (response) => {
         try {
-          const verifyURL = "http://localhost:8080/api/payment/verify";
+          const verifyURL = "https://kfc-clone-ulag.onrender.com/api/payment/verify";
           const { data } = await axios.post(verifyURL, response);
           console.log("data:", data);
         } catch (err) {
@@ -57,7 +57,7 @@ const RightSide = () => {
 
   const handlePayment = async () => {
     try {
-      const orderURL = "http://localhost:8080/api/payment/orders";
+      const orderURL = "https://kfc-clone-ulag.onrender.com/api/payment/orders";
       const { data } = await axios.post(orderURL, { amount: stotal });
       console.log("data:", data);
       initPayment(data.data);

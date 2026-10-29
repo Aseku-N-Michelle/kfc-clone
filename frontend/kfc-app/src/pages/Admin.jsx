@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const API = "http://localhost:8080/api/product/menu";
+const API = "https://kfc-clone-ulag.onrender.com/api/product/menu";
 const empty = { image: "", title: "", desc: "", price: "", type: "snacks" };
 
 const Admin = () => {

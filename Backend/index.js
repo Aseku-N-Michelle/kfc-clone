@@ -11,11 +11,12 @@ const cors = require("cors");
 const helmet = require("helmet");
 
 const server = express();
+const PORT = process.env.PORT || 8080;
 
 server.use(express.urlencoded({ extended: true }));
 server.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
@@ -23,7 +24,7 @@ server.use(helmet());
 server.use(express.json());
 
 server.get("/", (req, res) => {
-  res.send(`KFC API Server started on localhost:${PORT}`);
+  res.send(`KFC API Server started on port ${PORT}`);
 });
 
 server.use("/Auth", userAuthRouter);
@@ -33,10 +34,8 @@ server.use("/api/product", menuRouter);
 server.use("/api/productcart", cartRouter);
 server.use("/api/payment", paymentRouter);
 
-const PORT = process.env.PORT || 8080;
-
 server.listen(PORT, async () => {
   await connection;
   console.log("Connected to Database");
-  console.log(`🌎 started on http://localhost:${PORT}/`);
+  console.log(`started on port ${PORT}`);
 });

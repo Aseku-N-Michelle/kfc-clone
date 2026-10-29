@@ -14,7 +14,7 @@ const NewLaunch = () => {
     },[])
     
      const fetchData= async()=>{
-        let payload= await getdata("http://localhost:8080/api/product/menu?type=launch");
+        let payload= await getdata("https://kfc-clone-ulag.onrender.com/api/product/menu?type=launch");
          dispatch(addlaunch(payload));
      }
 

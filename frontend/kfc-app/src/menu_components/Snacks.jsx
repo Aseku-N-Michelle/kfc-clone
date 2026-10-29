@@ -13,7 +13,7 @@ const Snacks = () => {
     },[])
     
      const fetchData= async()=>{
-        let payload= await getdata("http://localhost:8080/api/product/menu?type=snacks");
+        let payload= await getdata("https://kfc-clone-ulag.onrender.com/api/product/menu?type=snacks");
          dispatch(addsnacks(payload));
      }
 

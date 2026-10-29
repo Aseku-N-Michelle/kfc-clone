@@ -18,7 +18,7 @@ const Cartproduct = ({ desc, id, image, price, qty, title, _id, fetchData }) => 
 
   const handleRemove = () => {
     axios
-      .delete(`http://localhost:8080/api/productcart/cart/${id}`)
+      .delete(`https://kfc-clone-ulag.onrender.com/api/productcart/cart/${id}`)
       .then(() => {
         fetchData();
         console.log("Deleted");
@@ -28,7 +28,7 @@ const Cartproduct = ({ desc, id, image, price, qty, title, _id, fetchData }) => 
   const handleMinus = () => {
     const el = { id: id, image, price, title, desc, qty: count - 1 };
     axios
-      .put(`http://localhost:8080/api/productcart/cart/${id}`, el)
+      .put(`https://kfc-clone-ulag.onrender.com/api/productcart/cart/${id}`, el)
       .then(() => {
         dispatch(addcartcount(el));
         setCount(count - 1);
@@ -38,7 +38,7 @@ const Cartproduct = ({ desc, id, image, price, qty, title, _id, fetchData }) => 
   const handlePlus = () => {
     const el = { id: id, image, price, title, desc, qty: count + 1 };
     axios
-      .put(`http://localhost:8080/api/productcart/cart/${id}`, el)
+      .put(`https://kfc-clone-ulag.onrender.com/api/productcart/cart/${id}`, el)
       .then(() => {
         setCount(count + 1);
         dispatch(addcartcount(el));

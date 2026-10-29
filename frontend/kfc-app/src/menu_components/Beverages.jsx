@@ -14,7 +14,7 @@ useEffect(()=>{
 },[])
 
  const fetchData= async()=>{
-    let payload= await getdata("http://localhost:8080/api/product/menu?type=beverages");
+    let payload= await getdata("https://kfc-clone-ulag.onrender.com/api/product/menu?type=beverages");
      dispatch(addbeverages(payload));
  }
 
